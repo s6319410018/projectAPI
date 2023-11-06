@@ -9,90 +9,103 @@ include_once './../connect_db.php';
 include_once './../model/nodemcu_read.php';
 
 $conn_DB = new ConnectDB();
-$nodemcuaccess = new NODEMCU($conn_DB->getConnectionDB());
+$nodemcuaccess = new NODEMCU_READ($conn_DB->getConnectionDB());
 
 $data = json_decode(file_get_contents("php://input"));
 
 date_default_timezone_set('Asia/Bangkok');
 //วันย้อนหลัง
-$Date_Back_7 = date("Y-m-d", strtotime("-7 day"));
-$Date_Back_14 = date("Y-m-d", strtotime("-14 day"));
-$Date_Back_21 = date("Y-m-d", strtotime("-21 day"));
-$Date_Back_28 = date("Y-m-d", strtotime("-28 day"));
+$Date_Back_One_Week = date("Y-m-d", strtotime("-7 day"));
+$Date_Back_Two_Week = date("Y-m-d", strtotime("-14 day"));
+$Date_Back_Three_Week = date("Y-m-d", strtotime("-21 day"));
+$Date_Back_Four_Week = date("Y-m-d", strtotime("-28 day"));
 //เวลาย้อนหลัง
-$Time_Back_10 = date("H:i:s", strtotime("-10 minutes"));
-$Time_Back_20 = date("H:i:s", strtotime("-20 minutes"));
-$Time_Back_30 = date("H:i:s", strtotime("-30 minutes"));
-$Time_Back_40 = date("H:i:s", strtotime("-40 minutes"));
-$Time_Back_50 = date("H:i:s", strtotime("-50 minutes"));
-$Time_Back_60 = date("H:i:s", strtotime("-60 minutes"));
+$Time_Back_Ten = date("H:i:s", strtotime("-10 minutes"));
+$Time_Back_Twenty = date("H:i:s", strtotime("-20 minutes"));
+$Time_Back_Thirty = date("H:i:s", strtotime("-30 minutes"));
+$Time_Back_Forty = date("H:i:s", strtotime("-40 minutes"));
+$Time_Back_Fifty = date("H:i:s", strtotime("-50 minutes"));
+$Time_Back_Sixty = date("H:i:s", strtotime("-60 minutes"));
 
 //แปลงวันที่เป็นข้อความ
-$Date_Back_7 = (string)$Date_Back_7;
-$Date_Back_14 = (string)$Date_Back_14;
-$Date_Back_21 = (string)$Date_Back_21;
-$Date_Back_28 = (string)$Date_Back_28;
+$Date_Back_One_Week = (string)$Date_Back_One_Week;
+$Date_Back_Two_Week = (string)$Date_Back_Two_Week;
+$Date_Back_Three_Week = (string)$Date_Back_Three_Week;
+$Date_Back_Four_Week = (string)$Date_Back_Four_Week;
 //แปลงเวลาเป็นข้อความ
-$Time_Back_10 = (string)$Time_Back_10;
-$Time_Back_20 = (string)$Time_Back_20;
-$Time_Back_30 = (string)$Time_Back_30;
-$Time_Back_40 = (string)$Time_Back_40;
-$Time_Back_50 = (string)$Time_Back_50;
-$Time_Back_60 = (string)$Time_Back_60;
+$Time_Back_Ten = (string)$Time_Back_Ten;
+$Time_Back_Twenty = (string)$Time_Back_Twenty;
+$Time_Back_Thirty = (string)$Time_Back_Thirty;
+$Time_Back_Forty = (string)$Time_Back_Forty;
+$Time_Back_Fifty = (string)$Time_Back_Fifty;
+$Time_Back_Sixty = (string)$Time_Back_Sixty;
 
 
 //นำตัวแปรที่เป็นjson ส่งไปให้ตัวแปรที่อยู่ใน Class
 $nodemcuaccess->espkey = $data->espkey;
 
 //นำตัวแปรจาก TIME SERVER ส่งไปให้ตัวแปรที่อยู่ใน Class
-$nodemcuaccess->Date_Back_7 = $Date_Back_7;
-$nodemcuaccess->Date_Back_14 = $Date_Back_14;
-$nodemcuaccess->Date_Back_21 = $Date_Back_21;
-$nodemcuaccess->Date_Back_28 = $Date_Back_28;
+$nodemcuaccess->Date_Back_One_Week = $Date_Back_One_Week;
+$nodemcuaccess->Date_Back_Two_Week = $Date_Back_Two_Week;
+$nodemcuaccess->Date_Back_Three_Week = $Date_Back_Three_Week;
+$nodemcuaccess->Date_Back_Four_Week = $Date_Back_Four_Week;
 
-$nodemcuaccess->Time_Back_10 = $Time_Back_10;
-$nodemcuaccess->Time_Back_20 = $Time_Back_20;
-$nodemcuaccess->Time_Back_30 = $Time_Back_30;
-$nodemcuaccess->Time_Back_40 = $Time_Back_40;
-$nodemcuaccess->Time_Back_50 = $Time_Back_50;
-$nodemcuaccess->Time_Back_60 = $Time_Back_60;
+$nodemcuaccess->Time_Back_Ten = $Time_Back_Ten;
+$nodemcuaccess->Time_Back_Twenty = $Time_Back_Twenty;
+$nodemcuaccess->Time_Back_Thirty = $Time_Back_Thirty;
+$nodemcuaccess->Time_Back_Forty = $Time_Back_Forty;
+$nodemcuaccess->Time_Back_Fifty = $Time_Back_Fifty;
+$nodemcuaccess->Time_Back_Sixty = $Time_Back_Sixty;
+
+
+
+
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////
-$Date_january_back_7day = date("2023-01-d", strtotime("-7 days"));
-$Date_january_back_14day = date("2023-01-d", strtotime("-7 days"));
-$Date_january_back_21day = date("2023-01-d", strtotime("-7 days"));
-$Date_january_back_28day = date("2023-01-d", strtotime("-7 days"));
-$Time_Back_10_format = date("H:i:00", strtotime("-10 minutes"));
-$Time_Back_20_format = date("H:i:00", strtotime("-20 minutes"));
-$Time_Back_30_format = date("H:i:00", strtotime("-30 minutes"));
-$Time_Back_40_format = date("H:i:00", strtotime("-40 minutes"));
-$Time_Back_50_format = date("H:i:00", strtotime("-50 minutes"));
-$Time_Back_60_format = date("H:i:00", strtotime("-60 minutes"));
+$Date_Back_One_Week_January = date("2023-01-d", strtotime("-7 days"));
+$Date_Back_Two_Week_January  = date("2023-01-d", strtotime("-7 days"));
+$Date_Back_Three_Week_January  = date("2023-01-d", strtotime("-7 days"));
+$Date_Back_Four_Week_January  = date("2023-01-d", strtotime("-7 days"));
+$Time_Back_Ten_January  = date("H:i:00", strtotime("-10 minutes"));
+$Time_Back_Twenty_January  = date("H:i:00", strtotime("-20 minutes"));
+$Time_Back_Thirty_January  = date("H:i:00", strtotime("-30 minutes"));
+$Time_Back_Forty_January  = date("H:i:00", strtotime("-40 minutes"));
+$Time_Back_Fifty_January  = date("H:i:00", strtotime("-50 minutes"));
+$Time_Back_Sixty_January  = date("H:i:00", strtotime("-60 minutes"));
 
 
-$Date_january_back_7day = (string)$Date_january_back_7day;
-$Date_january_back_14day = (string)$Date_january_back_14day;
-$Date_january_back_21day = (string)$Date_january_back_21day;
-$Date_january_back_28day = (string)$Date_january_back_28day;
-
-$Time_Back_10_format = (string)$Time_Back_10_format;
-$Time_Back_20_format = (string)$Time_Back_20_format;
-$Time_Back_30_format = (string)$Time_Back_30_format;
-$Time_Back_40_format = (string)$Time_Back_40_format;
-$Time_Back_50_format = (string)$Time_Back_50_format;
-$Time_Back_60_format = (string)$Time_Back_60_format;
 
 
-$nodemcuaccess->Date_Back_7_january = $Date_january_back_7day;
-$nodemcuaccess->Date_Back_14_january = $Date_january_back_14day;
-$nodemcuaccess->Date_Back_21_january = $Date_january_back_21day;
-$nodemcuaccess->Date_Back_28_january = $Date_january_back_28day;
+//แปลงวันที่เป็นข้อความ
+$Date_Back_One_Week_January  = (string)$Date_Back_One_Week_January ;
+$Date_Back_Two_Week_January  = (string)$Date_Back_Two_Week_January ;
+$Date_Back_Three_Week_January  = (string)$Date_Back_Three_Week_January ;
+$Date_Back_Four_Week_January  = (string)$Date_Back_Four_Week_January ;
+//แปลงเวลาเป็นข้อความ
+$Time_Back_Ten_January  = (string)$Time_Back_Ten_January ;
+$Time_Back_Twenty_January  = (string)$Time_Back_Twenty_January ;
+$Time_Back_Thirty_January  = (string)$Time_Back_Thirty_January ;
+$Time_Back_Forty_January  = (string)$Time_Back_Forty_January ;
+$Time_Back_Fifty_January  = (string)$Time_Back_Fifty_January ;
+$Time_Back_Sixty_January  = (string)$Time_Back_Sixty_January ;
 
-$nodemcuaccess->Time_Back_10_january = $Time_Back_10_format;
-$nodemcuaccess->Time_Back_20_january = $Time_Back_20_format;
-$nodemcuaccess->Time_Back_30_january = $Time_Back_30_format;
-$nodemcuaccess->Time_Back_40_january = $Time_Back_40_format;
-$nodemcuaccess->Time_Back_50_january = $Time_Back_50_format;
-$nodemcuaccess->Time_Back_60_january = $Time_Back_60_format;
+
+$nodemcuaccess->Date_Back_One_Week_January = $Date_Back_One_Week_January;
+$nodemcuaccess->Date_Back_Two_Week_January = $Date_Back_Two_Week_January;
+$nodemcuaccess->Date_Back_Three_Week_January = $Date_Back_Three_Week_January;
+$nodemcuaccess->Date_Back_Four_Week_January = $Date_Back_Four_Week_January;
+
+$nodemcuaccess->Time_Back_Ten_January = $Time_Back_Ten_January;
+$nodemcuaccess->Time_Back_Twenty_January = $Time_Back_Twenty_January;
+$nodemcuaccess->Time_Back_Thirty_January = $Time_Back_Thirty_January;
+$nodemcuaccess->Time_Back_Forty_January = $Time_Back_Forty_January;
+$nodemcuaccess->Time_Back_Fifty_January = $Time_Back_Fifty_January;
+$nodemcuaccess->Time_Back_Sixty_January = $Time_Back_Sixty_January;
+
+
+
 ///////////////////////////////////////////////////////////////////////
 
 

@@ -1,7 +1,7 @@
 <?php
 
 
-class NODEMCU
+class NODEMCU_READ
 {
     private $connDB;
 
@@ -15,32 +15,33 @@ class NODEMCU
     public $userId;
     public $espkeyall="1234567890";
     ///////////////////////////////
-    public $Date_Back_7;
-    public $Date_Back_14;
-    public $Date_Back_21;
-    public $Date_Back_28;
+    public $Date_Back_One_Week;
+    public $Date_Back_Two_Week;
+    public $Date_Back_Three_Week;
+    public $Date_Back_Four_Week;
 
-    public $Time_Back_10;
-    public $Time_Back_20;
-    public $Time_Back_30;
-    public $Time_Back_40;
-    public $Time_Back_50;
-    public $Time_Back_60;
+    public $Time_Back_Ten;
+    public $Time_Back_Twenty;
+    public $Time_Back_Thirty;
+    public $Time_Back_Forty;
+    public $Time_Back_Fifty;
+    public $Time_Back_Sixty;
 
- /////////////////////////////////
-    public $Date_Back_7_january;
-    public $Date_Back_14_january;
-    public $Date_Back_21_january;
-    public $Date_Back_28_january;
+    public $Date_Back_One_Week_January;
+    public $Date_Back_Two_Week_January;
+    public $Date_Back_Three_Week_January;
+    public $Date_Back_Four_Week_January;
 
-    public $Time_Back_10_january;
-    public $Time_Back_20_january;
-    public $Time_Back_30_january;
-    public $Time_Back_40_january;
-    public $Time_Back_50_january;
-    public $Time_Back_60_january;
+    public $Time_Back_Ten_January;
+    public $Time_Back_Twenty_January;
+    public $Time_Back_Thirty_January;
+    public $Time_Back_Forty_January;
+    public $Time_Back_Fifty_January;
+    public $Time_Back_Sixty_January;
+
 
     
+  
     //ใช้espkey หาid ผู้ใช้
     public function NODE_MCU_GET_ID()
     {
@@ -96,19 +97,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_7 
-        AND time=:Time_Back_10 
+        WHERE date=:Date_Back_One_Week 
+        AND time=:Time_Back_Ten 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_7 = htmlspecialchars(strip_tags($this->Date_Back_7));
-        $this->Time_Back_10 = htmlspecialchars(strip_tags($this->Time_Back_10));
+        $this->Date_Back_One_Week = htmlspecialchars(strip_tags($this->Date_Back_One_Week));
+        $this->Time_Back_Ten = htmlspecialchars(strip_tags($this->Time_Back_Ten));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_7", $this->Date_Back_7);
-        $stmt->bindParam(":Time_Back_10", $this->Time_Back_10);
+        $stmt->bindParam(":Date_Back_One_Week", $this->Date_Back_One_Week);
+        $stmt->bindParam(":Time_Back_Ten", $this->Time_Back_Ten);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -119,19 +120,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_7 
-        AND time=:Time_Back_20 
+        WHERE date=:Date_Back_One_Week 
+        AND time=:Time_Back_Twenty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_7 = htmlspecialchars(strip_tags($this->Date_Back_7));
-        $this->Time_Back_20 = htmlspecialchars(strip_tags($this->Time_Back_20));
+        $this->Date_Back_One_Week = htmlspecialchars(strip_tags($this->Date_Back_One_Week));
+        $this->Time_Back_Twenty = htmlspecialchars(strip_tags($this->Time_Back_Twenty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_7", $this->Date_Back_7);
-        $stmt->bindParam(":Time_Back_20", $this->Time_Back_20);
+        $stmt->bindParam(":Date_Back_One_Week", $this->Date_Back_One_Week);
+        $stmt->bindParam(":Time_Back_Twenty", $this->Time_Back_Twenty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -142,19 +143,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_7 
-        AND time=:Time_Back_30 
+        WHERE date=:Date_Back_One_Week 
+        AND time=:Time_Back_Thirty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_7 = htmlspecialchars(strip_tags($this->Date_Back_7));
-        $this->Time_Back_30 = htmlspecialchars(strip_tags($this->Time_Back_30));
+        $this->Date_Back_One_Week = htmlspecialchars(strip_tags($this->Date_Back_One_Week));
+        $this->Time_Back_Thirty = htmlspecialchars(strip_tags($this->Time_Back_Thirty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_7", $this->Date_Back_7);
-        $stmt->bindParam(":Time_Back_30", $this->Time_Back_30);
+        $stmt->bindParam(":Date_Back_One_Week", $this->Date_Back_One_Week);
+        $stmt->bindParam(":Time_Back_Thirty", $this->Time_Back_Thirty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -165,19 +166,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_7 
-        AND time=:Time_Back_40
+        WHERE date=:Date_Back_One_Week 
+        AND time=:Time_Back_Forty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_7 = htmlspecialchars(strip_tags($this->Date_Back_7));
-        $this->Time_Back_40 = htmlspecialchars(strip_tags($this->Time_Back_40));
+        $this->Date_Back_One_Week = htmlspecialchars(strip_tags($this->Date_Back_One_Week));
+        $this->Time_Back_Forty = htmlspecialchars(strip_tags($this->Time_Back_Forty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_7", $this->Date_Back_7);
-        $stmt->bindParam(":Time_Back_40", $this->Time_Back_40);
+        $stmt->bindParam(":Date_Back_One_Week", $this->Date_Back_One_Week);
+        $stmt->bindParam(":Time_Back_Forty", $this->Time_Back_Forty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -188,19 +189,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_7 
-        AND time=:Time_Back_50
+        WHERE date=:Date_Back_One_Week 
+        AND time=:Time_Back_Fifty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_7 = htmlspecialchars(strip_tags($this->Date_Back_7));
-        $this->Time_Back_50 = htmlspecialchars(strip_tags($this->Time_Back_50));
+        $this->Date_Back_One_Week = htmlspecialchars(strip_tags($this->Date_Back_One_Week));
+        $this->Time_Back_Fifty = htmlspecialchars(strip_tags($this->Time_Back_Fifty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_7", $this->Date_Back_7);
-        $stmt->bindParam(":Time_Back_50", $this->Time_Back_50);
+        $stmt->bindParam(":Date_Back_One_Week", $this->Date_Back_One_Week);
+        $stmt->bindParam(":Time_Back_Fifty", $this->Time_Back_Fifty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -211,19 +212,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_7 
-        AND time=:Time_Back_60
+        WHERE date=:Date_Back_One_Week 
+        AND time=:Time_Back_Sixty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_7 = htmlspecialchars(strip_tags($this->Date_Back_7));
-        $this->Time_Back_60 = htmlspecialchars(strip_tags($this->Time_Back_60));
+        $this->Date_Back_One_Week = htmlspecialchars(strip_tags($this->Date_Back_One_Week));
+        $this->Time_Back_Sixty = htmlspecialchars(strip_tags($this->Time_Back_Sixty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_7", $this->Date_Back_7);
-        $stmt->bindParam(":Time_Back_60", $this->Time_Back_60);
+        $stmt->bindParam(":Date_Back_One_Week", $this->Date_Back_One_Week);
+        $stmt->bindParam(":Time_Back_Sixty", $this->Time_Back_Sixty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -235,19 +236,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_14
-        AND time=:Time_Back_10 
+        WHERE date=:Date_Back_Two_Week
+        AND time=:Time_Back_Ten 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_14 = htmlspecialchars(strip_tags($this->Date_Back_14));
-        $this->Time_Back_10 = htmlspecialchars(strip_tags($this->Time_Back_10));
+        $this->Date_Back_Two_Week = htmlspecialchars(strip_tags($this->Date_Back_Two_Week));
+        $this->Time_Back_Ten = htmlspecialchars(strip_tags($this->Time_Back_Ten));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_14", $this->Date_Back_14);
-        $stmt->bindParam(":Time_Back_10", $this->Time_Back_10);
+        $stmt->bindParam(":Date_Back_Two_Week", $this->Date_Back_Two_Week);
+        $stmt->bindParam(":Time_Back_Ten", $this->Time_Back_Ten);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -258,19 +259,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_14
-        AND time=:Time_Back_20 
+        WHERE date=:Date_Back_Two_Week
+        AND time=:Time_Back_Twenty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_14 = htmlspecialchars(strip_tags($this->Date_Back_14));
-        $this->Time_Back_20 = htmlspecialchars(strip_tags($this->Time_Back_20));
+        $this->Date_Back_Two_Week = htmlspecialchars(strip_tags($this->Date_Back_Two_Week));
+        $this->Time_Back_Twenty = htmlspecialchars(strip_tags($this->Time_Back_Twenty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_14", $this->Date_Back_14);
-        $stmt->bindParam(":Time_Back_20", $this->Time_Back_20);
+        $stmt->bindParam(":Date_Back_Two_Week", $this->Date_Back_Two_Week);
+        $stmt->bindParam(":Time_Back_Twenty", $this->Time_Back_Twenty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -281,19 +282,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_14
-        AND time=:Time_Back_30 
+        WHERE date=:Date_Back_Two_Week
+        AND time=:Time_Back_Thirty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_14 = htmlspecialchars(strip_tags($this->Date_Back_14));
-        $this->Time_Back_30 = htmlspecialchars(strip_tags($this->Time_Back_30));
+        $this->Date_Back_Two_Week = htmlspecialchars(strip_tags($this->Date_Back_Two_Week));
+        $this->Time_Back_Thirty = htmlspecialchars(strip_tags($this->Time_Back_Thirty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_14", $this->Date_Back_14);
-        $stmt->bindParam(":Time_Back_30", $this->Time_Back_30);
+        $stmt->bindParam(":Date_Back_Two_Week", $this->Date_Back_Two_Week);
+        $stmt->bindParam(":Time_Back_Thirty", $this->Time_Back_Thirty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -304,19 +305,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_14
-        AND time=:Time_Back_40
+        WHERE date=:Date_Back_Two_Week
+        AND time=:Time_Back_Forty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_14 = htmlspecialchars(strip_tags($this->Date_Back_14));
-        $this->Time_Back_40 = htmlspecialchars(strip_tags($this->Time_Back_40));
+        $this->Date_Back_Two_Week = htmlspecialchars(strip_tags($this->Date_Back_Two_Week));
+        $this->Time_Back_Forty = htmlspecialchars(strip_tags($this->Time_Back_Forty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_14", $this->Date_Back_14);
-        $stmt->bindParam(":Time_Back_40", $this->Time_Back_40);
+        $stmt->bindParam(":Date_Back_Two_Week", $this->Date_Back_Two_Week);
+        $stmt->bindParam(":Time_Back_Forty", $this->Time_Back_Forty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -327,19 +328,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_14
-        AND time=:Time_Back_50
+        WHERE date=:Date_Back_Two_Week
+        AND time=:Time_Back_Fifty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_14 = htmlspecialchars(strip_tags($this->Date_Back_14));
-        $this->Time_Back_50 = htmlspecialchars(strip_tags($this->Time_Back_50));
+        $this->Date_Back_Two_Week = htmlspecialchars(strip_tags($this->Date_Back_Two_Week));
+        $this->Time_Back_Fifty = htmlspecialchars(strip_tags($this->Time_Back_Fifty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_14", $this->Date_Back_14);
-        $stmt->bindParam(":Time_Back_50", $this->Time_Back_50);
+        $stmt->bindParam(":Date_Back_Two_Week", $this->Date_Back_Two_Week);
+        $stmt->bindParam(":Time_Back_Fifty", $this->Time_Back_Fifty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -351,19 +352,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_14
-        AND time=:Time_Back_60
+        WHERE date=:Date_Back_Two_Week
+        AND time=:Time_Back_Sixty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_14 = htmlspecialchars(strip_tags($this->Date_Back_14));
-        $this->Time_Back_60 = htmlspecialchars(strip_tags($this->Time_Back_60));
+        $this->Date_Back_Two_Week = htmlspecialchars(strip_tags($this->Date_Back_Two_Week));
+        $this->Time_Back_Sixty = htmlspecialchars(strip_tags($this->Time_Back_Sixty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_14", $this->Date_Back_14);
-        $stmt->bindParam(":Time_Back_60", $this->Time_Back_60);
+        $stmt->bindParam(":Date_Back_Two_Week", $this->Date_Back_Two_Week);
+        $stmt->bindParam(":Time_Back_Sixty", $this->Time_Back_Sixty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -376,19 +377,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_21
-        AND time=:Time_Back_10 
+        WHERE date=:Date_Back_Three_Week
+        AND time=:Time_Back_Ten 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_21 = htmlspecialchars(strip_tags($this->Date_Back_21));
-        $this->Time_Back_10 = htmlspecialchars(strip_tags($this->Time_Back_10));
+        $this->Date_Back_Three_Week = htmlspecialchars(strip_tags($this->Date_Back_Three_Week));
+        $this->Time_Back_Ten = htmlspecialchars(strip_tags($this->Time_Back_Ten));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_21", $this->Date_Back_21);
-        $stmt->bindParam(":Time_Back_10", $this->Time_Back_10);
+        $stmt->bindParam(":Date_Back_Three_Week", $this->Date_Back_Three_Week);
+        $stmt->bindParam(":Time_Back_Ten", $this->Time_Back_Ten);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -400,19 +401,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_21
-        AND time=:Time_Back_20 
+        WHERE date=:Date_Back_Three_Week
+        AND time=:Time_Back_Twenty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_21 = htmlspecialchars(strip_tags($this->Date_Back_21));
-        $this->Time_Back_20 = htmlspecialchars(strip_tags($this->Time_Back_20));
+        $this->Date_Back_Three_Week = htmlspecialchars(strip_tags($this->Date_Back_Three_Week));
+        $this->Time_Back_Twenty = htmlspecialchars(strip_tags($this->Time_Back_Twenty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_21", $this->Date_Back_21);
-        $stmt->bindParam(":Time_Back_20", $this->Time_Back_20);
+        $stmt->bindParam(":Date_Back_Three_Week", $this->Date_Back_Three_Week);
+        $stmt->bindParam(":Time_Back_Twenty", $this->Time_Back_Twenty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -423,19 +424,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_21
-        AND time=:Time_Back_30 
+        WHERE date=:Date_Back_Three_Week
+        AND time=:Time_Back_Thirty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_21 = htmlspecialchars(strip_tags($this->Date_Back_21));
-        $this->Time_Back_30 = htmlspecialchars(strip_tags($this->Time_Back_30));
+        $this->Date_Back_Three_Week = htmlspecialchars(strip_tags($this->Date_Back_Three_Week));
+        $this->Time_Back_Thirty = htmlspecialchars(strip_tags($this->Time_Back_Thirty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_21", $this->Date_Back_21);
-        $stmt->bindParam(":Time_Back_30", $this->Time_Back_30);
+        $stmt->bindParam(":Date_Back_Three_Week", $this->Date_Back_Three_Week);
+        $stmt->bindParam(":Time_Back_Thirty", $this->Time_Back_Thirty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -446,19 +447,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_21
-        AND time=:Time_Back_40
+        WHERE date=:Date_Back_Three_Week
+        AND time=:Time_Back_Forty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_21 = htmlspecialchars(strip_tags($this->Date_Back_21));
-        $this->Time_Back_40 = htmlspecialchars(strip_tags($this->Time_Back_40));
+        $this->Date_Back_Three_Week = htmlspecialchars(strip_tags($this->Date_Back_Three_Week));
+        $this->Time_Back_Forty = htmlspecialchars(strip_tags($this->Time_Back_Forty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_21", $this->Date_Back_21);
-        $stmt->bindParam(":Time_Back_40", $this->Time_Back_40);
+        $stmt->bindParam(":Date_Back_Three_Week", $this->Date_Back_Three_Week);
+        $stmt->bindParam(":Time_Back_Forty", $this->Time_Back_Forty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -469,19 +470,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_21
-        AND time=:Time_Back_50
+        WHERE date=:Date_Back_Three_Week
+        AND time=:Time_Back_Fifty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_21 = htmlspecialchars(strip_tags($this->Date_Back_21));
-        $this->Time_Back_50 = htmlspecialchars(strip_tags($this->Time_Back_50));
+        $this->Date_Back_Three_Week = htmlspecialchars(strip_tags($this->Date_Back_Three_Week));
+        $this->Time_Back_Fifty = htmlspecialchars(strip_tags($this->Time_Back_Fifty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_21", $this->Date_Back_21);
-        $stmt->bindParam(":Time_Back_50", $this->Time_Back_50);
+        $stmt->bindParam(":Date_Back_Three_Week", $this->Date_Back_Three_Week);
+        $stmt->bindParam(":Time_Back_Fifty", $this->Time_Back_Fifty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -492,19 +493,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_21
-        AND time=:Time_Back_60
+        WHERE date=:Date_Back_Three_Week
+        AND time=:Time_Back_Sixty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_21 = htmlspecialchars(strip_tags($this->Date_Back_21));
-        $this->Time_Back_60 = htmlspecialchars(strip_tags($this->Time_Back_60));
+        $this->Date_Back_Three_Week = htmlspecialchars(strip_tags($this->Date_Back_Three_Week));
+        $this->Time_Back_Sixty = htmlspecialchars(strip_tags($this->Time_Back_Sixty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_21", $this->Date_Back_21);
-        $stmt->bindParam(":Time_Back_60", $this->Time_Back_60);
+        $stmt->bindParam(":Date_Back_Three_Week", $this->Date_Back_Three_Week);
+        $stmt->bindParam(":Time_Back_Sixty", $this->Time_Back_Sixty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -516,19 +517,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_28
-        AND time=:Time_Back_10 
+        WHERE date=:Date_Back_Four_Week
+        AND time=:Time_Back_Ten 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_28 = htmlspecialchars(strip_tags($this->Date_Back_28));
-        $this->Time_Back_10 = htmlspecialchars(strip_tags($this->Time_Back_10));
+        $this->Date_Back_Four_Week = htmlspecialchars(strip_tags($this->Date_Back_Four_Week));
+        $this->Time_Back_Ten = htmlspecialchars(strip_tags($this->Time_Back_Ten));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_28", $this->Date_Back_28);
-        $stmt->bindParam(":Time_Back_10", $this->Time_Back_10);
+        $stmt->bindParam(":Date_Back_Four_Week", $this->Date_Back_Four_Week);
+        $stmt->bindParam(":Time_Back_Ten", $this->Time_Back_Ten);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -539,19 +540,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_28
-        AND time=:Time_Back_20 
+        WHERE date=:Date_Back_Four_Week
+        AND time=:Time_Back_Twenty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_28 = htmlspecialchars(strip_tags($this->Date_Back_28));
-        $this->Time_Back_20 = htmlspecialchars(strip_tags($this->Time_Back_20));
+        $this->Date_Back_Four_Week = htmlspecialchars(strip_tags($this->Date_Back_Four_Week));
+        $this->Time_Back_Twenty = htmlspecialchars(strip_tags($this->Time_Back_Twenty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_28", $this->Date_Back_28);
-        $stmt->bindParam(":Time_Back_20", $this->Time_Back_20);
+        $stmt->bindParam(":Date_Back_Four_Week", $this->Date_Back_Four_Week);
+        $stmt->bindParam(":Time_Back_Twenty", $this->Time_Back_Twenty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -563,19 +564,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_28
-        AND time=:Time_Back_30 
+        WHERE date=:Date_Back_Four_Week
+        AND time=:Time_Back_Thirty 
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_28 = htmlspecialchars(strip_tags($this->Date_Back_28));
-        $this->Time_Back_30 = htmlspecialchars(strip_tags($this->Time_Back_30));
+        $this->Date_Back_Four_Week = htmlspecialchars(strip_tags($this->Date_Back_Four_Week));
+        $this->Time_Back_Thirty = htmlspecialchars(strip_tags($this->Time_Back_Thirty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_28", $this->Date_Back_28);
-        $stmt->bindParam(":Time_Back_30", $this->Time_Back_30);
+        $stmt->bindParam(":Date_Back_Four_Week", $this->Date_Back_Four_Week);
+        $stmt->bindParam(":Time_Back_Thirty", $this->Time_Back_Thirty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -586,19 +587,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_28
-        AND time=:Time_Back_40
+        WHERE date=:Date_Back_Four_Week
+        AND time=:Time_Back_Forty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_28 = htmlspecialchars(strip_tags($this->Date_Back_28));
-        $this->Time_Back_40 = htmlspecialchars(strip_tags($this->Time_Back_40));
+        $this->Date_Back_Four_Week = htmlspecialchars(strip_tags($this->Date_Back_Four_Week));
+        $this->Time_Back_Forty = htmlspecialchars(strip_tags($this->Time_Back_Forty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_28", $this->Date_Back_28);
-        $stmt->bindParam(":Time_Back_40", $this->Time_Back_40);
+        $stmt->bindParam(":Date_Back_Four_Week", $this->Date_Back_Four_Week);
+        $stmt->bindParam(":Time_Back_Forty", $this->Time_Back_Forty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -609,19 +610,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_28
-        AND time=:Time_Back_50
+        WHERE date=:Date_Back_Four_Week
+        AND time=:Time_Back_Fifty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_28 = htmlspecialchars(strip_tags($this->Date_Back_28));
-        $this->Time_Back_50 = htmlspecialchars(strip_tags($this->Time_Back_50));
+        $this->Date_Back_Four_Week = htmlspecialchars(strip_tags($this->Date_Back_Four_Week));
+        $this->Time_Back_Fifty = htmlspecialchars(strip_tags($this->Time_Back_Fifty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_28", $this->Date_Back_28);
-        $stmt->bindParam(":Time_Back_50", $this->Time_Back_50);
+        $stmt->bindParam(":Date_Back_Four_Week", $this->Date_Back_Four_Week);
+        $stmt->bindParam(":Time_Back_Fifty", $this->Time_Back_Fifty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -632,19 +633,19 @@ class NODEMCU
     {
         $strSQL = "SELECT Product_Details_Month_Pressure 
         FROM product_details_tb 
-        WHERE date=:Date_Back_28
-        AND time=:Time_Back_60
+        WHERE date=:Date_Back_Four_Week
+        AND time=:Time_Back_Sixty
         AND  product_key= :espkey 
         ORDER BY Product_Details_Month_Id 
         DESC LIMIT 1";
 
-        $this->Date_Back_28 = htmlspecialchars(strip_tags($this->Date_Back_28));
-        $this->Time_Back_60 = htmlspecialchars(strip_tags($this->Time_Back_60));
+        $this->Date_Back_Four_Week = htmlspecialchars(strip_tags($this->Date_Back_Four_Week));
+        $this->Time_Back_Sixty = htmlspecialchars(strip_tags($this->Time_Back_Sixty));
         $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
         $stmt = $this->connDB->prepare($strSQL);
 
-        $stmt->bindParam(":Date_Back_28", $this->Date_Back_28);
-        $stmt->bindParam(":Time_Back_60", $this->Time_Back_60);
+        $stmt->bindParam(":Date_Back_Four_Week", $this->Date_Back_Four_Week);
+        $stmt->bindParam(":Time_Back_Sixty", $this->Time_Back_Sixty);
         $stmt->bindParam(":espkey", $this->espkey);
 
         if ($stmt->execute()) {
@@ -660,19 +661,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_7_january 
-           AND time=:Time_Back_10_january
+           WHERE date=:Date_Back_One_Week_January 
+           AND time=:Time_Back_Ten_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_7_january = htmlspecialchars(strip_tags($this->Date_Back_7_january));
-           $this->Time_Back_10_january = htmlspecialchars(strip_tags($this->Time_Back_10_january));
+           $this->Date_Back_One_Week_January= htmlspecialchars(strip_tags($this->Date_Back_One_Week_January));
+           $this->Time_Back_Ten_January = htmlspecialchars(strip_tags($this->Time_Back_Ten_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_7_january", $this->Date_Back_7_january);
-           $stmt->bindParam(":Time_Back_10_january", $this->Time_Back_10_january);
+           $stmt->bindParam(":Date_Back_One_Week_January", $this->Date_Back_One_Week_January);
+           $stmt->bindParam(":Time_Back_Ten_January", $this->Time_Back_Ten_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -683,19 +684,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_7_january
-           AND time=:Time_Back_20_january
+           WHERE date=:Date_Back_One_Week_January
+           AND time=:Time_Back_Twenty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_7_january = htmlspecialchars(strip_tags($this->Date_Back_7_january));
-           $this->Time_Back_20_january = htmlspecialchars(strip_tags($this->Time_Back_20_january));
+           $this->Date_Back_One_Week_January = htmlspecialchars(strip_tags($this->Date_Back_One_Week_January));
+           $this->Time_Back_Twenty_January = htmlspecialchars(strip_tags($this->Time_Back_Twenty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_7_january", $this->Date_Back_7_january);
-           $stmt->bindParam(":Time_Back_20_january", $this->Time_Back_20_january);
+           $stmt->bindParam(":Date_Back_One_Week_January", $this->Date_Back_One_Week_January);
+           $stmt->bindParam(":Time_Back_Twenty_January", $this->Time_Back_Twenty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -706,19 +707,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_7_january 
-           AND time=:Time_Back_30_january 
+           WHERE date=:Date_Back_One_Week_January 
+           AND time=:Time_Back_Thirty_January 
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_7_january = htmlspecialchars(strip_tags($this->Date_Back_7_january));
-           $this->Time_Back_30_january = htmlspecialchars(strip_tags($this->Time_Back_30_january));
+           $this->Date_Back_One_Week_January = htmlspecialchars(strip_tags($this->Date_Back_One_Week_January));
+           $this->Time_Back_Thirty_January = htmlspecialchars(strip_tags($this->Time_Back_Thirty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_7_january", $this->Date_Back_7_january);
-           $stmt->bindParam(":Time_Back_30_january", $this->Time_Back_30_january);
+           $stmt->bindParam(":Date_Back_One_Week_January", $this->Date_Back_One_Week_January);
+           $stmt->bindParam(":Time_Back_Thirty_January", $this->Time_Back_Thirty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -729,19 +730,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_7_january 
-           AND time=:Time_Back_40_january
+           WHERE date=:Date_Back_One_Week_January 
+           AND time=:Time_Back_Forty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_7_january = htmlspecialchars(strip_tags($this->Date_Back_7_january));
-           $this->Time_Back_40_january = htmlspecialchars(strip_tags($this->Time_Back_40_january));
+           $this->Date_Back_One_Week_January = htmlspecialchars(strip_tags($this->Date_Back_One_Week_January));
+           $this->Time_Back_Forty_January = htmlspecialchars(strip_tags($this->Time_Back_Forty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_7_january", $this->Date_Back_7_january);
-           $stmt->bindParam(":Time_Back_40_january", $this->Time_Back_40_january);
+           $stmt->bindParam(":Date_Back_One_Week_January", $this->Date_Back_One_Week_January);
+           $stmt->bindParam(":Time_Back_Forty_January", $this->Time_Back_Forty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -752,19 +753,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_7_january 
-           AND time=:Time_Back_50_january
+           WHERE date=:Date_Back_One_Week_January 
+           AND time=:Time_Back_Fifty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_7_january = htmlspecialchars(strip_tags($this->Date_Back_7_january));
-           $this->Time_Back_50_january  = htmlspecialchars(strip_tags($this->Time_Back_50_january));
+           $this->Date_Back_One_Week_January = htmlspecialchars(strip_tags($this->Date_Back_One_Week_January));
+           $this->Time_Back_Fifty_January  = htmlspecialchars(strip_tags($this->Time_Back_Fifty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_7_january", $this->Date_Back_7_january);
-           $stmt->bindParam(":Time_Back_50_january", $this->Time_Back_50_january);
+           $stmt->bindParam(":Date_Back_One_Week_January", $this->Date_Back_One_Week_January);
+           $stmt->bindParam(":Time_Back_Fifty_January", $this->Time_Back_Fifty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -775,19 +776,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_7_january
-           AND time=:Time_Back_60_january
+           WHERE date=:Date_Back_One_Week_January
+           AND time=:Time_Back_Sixty_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_7_january = htmlspecialchars(strip_tags($this->Date_Back_7_january));
-           $this->Time_Back_60_january = htmlspecialchars(strip_tags($this->Time_Back_60_january));
+           $this->Date_Back_One_Week_January = htmlspecialchars(strip_tags($this->Date_Back_One_Week_January));
+           $this->Time_Back_Sixty_January = htmlspecialchars(strip_tags($this->Time_Back_Sixty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_7_january", $this->Date_Back_7_january);
-           $stmt->bindParam(":Time_Back_60_january", $this->Time_Back_60_january);
+           $stmt->bindParam(":Date_Back_One_Week_January", $this->Date_Back_One_Week_January);
+           $stmt->bindParam(":Time_Back_Sixty_January", $this->Time_Back_Sixty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -799,19 +800,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_14_january 
-           AND time=:Time_Back_10_january
+           WHERE date=:Date_Back_Two_Week_January 
+           AND time=:Time_Back_Ten_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_14_january = htmlspecialchars(strip_tags($this->Date_Back_14_january));
-           $this->Time_Back_10_january = htmlspecialchars(strip_tags($this->Time_Back_10_january));
+           $this->Date_Back_Two_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Two_Week_January));
+           $this->Time_Back_Ten_January = htmlspecialchars(strip_tags($this->Time_Back_Ten_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_14_january", $this->Date_Back_14_january);
-           $stmt->bindParam(":Time_Back_10_january", $this->Time_Back_10_january);
+           $stmt->bindParam(":Date_Back_Two_Week_January", $this->Date_Back_Two_Week_January);
+           $stmt->bindParam(":Time_Back_Ten_January", $this->Time_Back_Ten_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -822,19 +823,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_14_january
-           AND time=:Time_Back_20_january
+           WHERE date=:Date_Back_Two_Week_January
+           AND time=:Time_Back_Twenty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_14_january = htmlspecialchars(strip_tags($this->Date_Back_14_january));
-           $this->Time_Back_20_january = htmlspecialchars(strip_tags($this->Time_Back_20_january));
+           $this->Date_Back_Two_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Two_Week_January));
+           $this->Time_Back_Twenty_January = htmlspecialchars(strip_tags($this->Time_Back_Twenty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_14_january", $this->Date_Back_14_january);
-           $stmt->bindParam(":Time_Back_20_january", $this->Time_Back_20_january);
+           $stmt->bindParam(":Date_Back_Two_Week_January", $this->Date_Back_Two_Week_January);
+           $stmt->bindParam(":Time_Back_Twenty_January", $this->Time_Back_Twenty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -845,19 +846,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_14_january 
-           AND time=:Time_Back_30_january 
+           WHERE date=:Date_Back_Two_Week_January 
+           AND time=:Time_Back_Thirty_January 
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_14_january = htmlspecialchars(strip_tags($this->Date_Back_14_january));
-           $this->Time_Back_30_january = htmlspecialchars(strip_tags($this->Time_Back_30_january));
+           $this->Date_Back_Two_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Two_Week_January));
+           $this->Time_Back_Thirty_January = htmlspecialchars(strip_tags($this->Time_Back_Thirty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_14_january", $this->Date_Back_14_january);
-           $stmt->bindParam(":Time_Back_30_january", $this->Time_Back_30_january);
+           $stmt->bindParam(":Date_Back_Two_Week_January", $this->Date_Back_Two_Week_January);
+           $stmt->bindParam(":Time_Back_Thirty_January", $this->Time_Back_Thirty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -868,19 +869,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_14_january 
-           AND time=:Time_Back_40_january
+           WHERE date=:Date_Back_Two_Week_January 
+           AND time=:Time_Back_Forty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_14_january = htmlspecialchars(strip_tags($this->Date_Back_14_january));
-           $this->Time_Back_40_january = htmlspecialchars(strip_tags($this->Time_Back_40_january));
+           $this->Date_Back_Two_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Two_Week_January));
+           $this->Time_Back_Forty_January = htmlspecialchars(strip_tags($this->Time_Back_Forty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_14_january", $this->Date_Back_14_january);
-           $stmt->bindParam(":Time_Back_40_january", $this->Time_Back_40_january);
+           $stmt->bindParam(":Date_Back_Two_Week_January", $this->Date_Back_Two_Week_January);
+           $stmt->bindParam(":Time_Back_Forty_January", $this->Time_Back_Forty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -891,19 +892,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_14_january 
-           AND time=:Time_Back_50_january
+           WHERE date=:Date_Back_Two_Week_January 
+           AND time=:Time_Back_Fifty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_14_january = htmlspecialchars(strip_tags($this->Date_Back_14_january));
-           $this->Time_Back_50_january  = htmlspecialchars(strip_tags($this->Time_Back_50_january));
+           $this->Date_Back_Two_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Two_Week_January));
+           $this->Time_Back_Fifty_January  = htmlspecialchars(strip_tags($this->Time_Back_Fifty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_14_january", $this->Date_Back_14_january);
-           $stmt->bindParam(":Time_Back_50_january", $this->Time_Back_50_january);
+           $stmt->bindParam(":Date_Back_Two_Week_January", $this->Date_Back_Two_Week_January);
+           $stmt->bindParam(":Time_Back_Fifty_January", $this->Time_Back_Fifty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -914,19 +915,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_14_january
-           AND time=:Time_Back_60_january
+           WHERE date=:Date_Back_Two_Week_January
+           AND time=:Time_Back_Sixty_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_14_january = htmlspecialchars(strip_tags($this->Date_Back_14_january));
-           $this->Time_Back_60_january = htmlspecialchars(strip_tags($this->Time_Back_60_january));
+           $this->Date_Back_Two_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Two_Week_January));
+           $this->Time_Back_Sixty_January = htmlspecialchars(strip_tags($this->Time_Back_Sixty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_14_january", $this->Date_Back_14_january);
-           $stmt->bindParam(":Time_Back_60_january", $this->Time_Back_60_january);
+           $stmt->bindParam(":Date_Back_Two_Week_January", $this->Date_Back_Two_Week_January);
+           $stmt->bindParam(":Time_Back_Sixty_January", $this->Time_Back_Sixty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -938,19 +939,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_21_january 
-           AND time=:Time_Back_10_january
+           WHERE date=:Date_Back_Three_Week_January 
+           AND time=:Time_Back_Ten_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_21_january = htmlspecialchars(strip_tags($this->Date_Back_21_january));
-           $this->Time_Back_10_january = htmlspecialchars(strip_tags($this->Time_Back_10_january));
+           $this->Date_Back_Three_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Three_Week_January));
+           $this->Time_Back_Ten_January = htmlspecialchars(strip_tags($this->Time_Back_Ten_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_21_january", $this->Date_Back_21_january);
-           $stmt->bindParam(":Time_Back_10_january", $this->Time_Back_10_january);
+           $stmt->bindParam(":Date_Back_Three_Week_January", $this->Date_Back_Three_Week_January);
+           $stmt->bindParam(":Time_Back_Ten_January", $this->Time_Back_Ten_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -961,19 +962,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_21_january
-           AND time=:Time_Back_20_january
+           WHERE date=:Date_Back_Three_Week_January
+           AND time=:Time_Back_Twenty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_21_january = htmlspecialchars(strip_tags($this->Date_Back_21_january));
-           $this->Time_Back_20_january = htmlspecialchars(strip_tags($this->Time_Back_20_january));
+           $this->Date_Back_Three_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Three_Week_January));
+           $this->Time_Back_Twenty_January = htmlspecialchars(strip_tags($this->Time_Back_Twenty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_21_january", $this->Date_Back_21_january);
-           $stmt->bindParam(":Time_Back_20_january", $this->Time_Back_20_january);
+           $stmt->bindParam(":Date_Back_Three_Week_January", $this->Date_Back_Three_Week_January);
+           $stmt->bindParam(":Time_Back_Twenty_January", $this->Time_Back_Twenty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -984,19 +985,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_21_january 
-           AND time=:Time_Back_30_january 
+           WHERE date=:Date_Back_Three_Week_January 
+           AND time=:Time_Back_Thirty_January 
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_21_january = htmlspecialchars(strip_tags($this->Date_Back_21_january));
-           $this->Time_Back_30_january = htmlspecialchars(strip_tags($this->Time_Back_30_january));
+           $this->Date_Back_Three_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Three_Week_January));
+           $this->Time_Back_Thirty_January = htmlspecialchars(strip_tags($this->Time_Back_Thirty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_21_january", $this->Date_Back_21_january);
-           $stmt->bindParam(":Time_Back_30_january", $this->Time_Back_30_january);
+           $stmt->bindParam(":Date_Back_Three_Week_January", $this->Date_Back_Three_Week_January);
+           $stmt->bindParam(":Time_Back_Thirty_January", $this->Time_Back_Thirty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1007,19 +1008,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_21_january 
-           AND time=:Time_Back_40_january
+           WHERE date=:Date_Back_Three_Week_January 
+           AND time=:Time_Back_Forty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_21_january = htmlspecialchars(strip_tags($this->Date_Back_21_january));
-           $this->Time_Back_40_january = htmlspecialchars(strip_tags($this->Time_Back_40_january));
+           $this->Date_Back_Three_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Three_Week_January));
+           $this->Time_Back_Forty_January = htmlspecialchars(strip_tags($this->Time_Back_Forty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_21_january", $this->Date_Back_21_january);
-           $stmt->bindParam(":Time_Back_40_january", $this->Time_Back_40_january);
+           $stmt->bindParam(":Date_Back_Three_Week_January", $this->Date_Back_Three_Week_January);
+           $stmt->bindParam(":Time_Back_Forty_January", $this->Time_Back_Forty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1030,19 +1031,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_21_january 
-           AND time=:Time_Back_50_january
+           WHERE date=:Date_Back_Three_Week_January 
+           AND time=:Time_Back_Fifty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_21_january = htmlspecialchars(strip_tags($this->Date_Back_21_january));
-           $this->Time_Back_50_january  = htmlspecialchars(strip_tags($this->Time_Back_50_january));
+           $this->Date_Back_Three_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Three_Week_January));
+           $this->Time_Back_Fifty_January  = htmlspecialchars(strip_tags($this->Time_Back_Fifty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_21_january", $this->Date_Back_21_january);
-           $stmt->bindParam(":Time_Back_50_january", $this->Time_Back_50_january);
+           $stmt->bindParam(":Date_Back_Three_Week_January", $this->Date_Back_Three_Week_January);
+           $stmt->bindParam(":Time_Back_Fifty_January", $this->Time_Back_Fifty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1053,19 +1054,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_21_january
-           AND time=:Time_Back_60_january
+           WHERE date=:Date_Back_Three_Week_January
+           AND time=:Time_Back_Sixty_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_21_january = htmlspecialchars(strip_tags($this->Date_Back_21_january));
-           $this->Time_Back_60_january = htmlspecialchars(strip_tags($this->Time_Back_60_january));
+           $this->Date_Back_Three_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Three_Week_January));
+           $this->Time_Back_Sixty_January = htmlspecialchars(strip_tags($this->Time_Back_Sixty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_21_january", $this->Date_Back_21_january);
-           $stmt->bindParam(":Time_Back_60_january", $this->Time_Back_60_january);
+           $stmt->bindParam(":Date_Back_Three_Week_January", $this->Date_Back_Three_Week_January);
+           $stmt->bindParam(":Time_Back_Sixty_January", $this->Time_Back_Sixty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1077,19 +1078,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_28_january 
-           AND time=:Time_Back_10_january
+           WHERE date=:Date_Back_Four_Week_January 
+           AND time=:Time_Back_Ten_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_28_january = htmlspecialchars(strip_tags($this->Date_Back_28_january));
-           $this->Time_Back_10_january = htmlspecialchars(strip_tags($this->Time_Back_10_january));
+           $this->Date_Back_Four_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Four_Week_January));
+           $this->Time_Back_Ten_January = htmlspecialchars(strip_tags($this->Time_Back_Ten_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_28_january", $this->Date_Back_28_january);
-           $stmt->bindParam(":Time_Back_10_january", $this->Time_Back_10_january);
+           $stmt->bindParam(":Date_Back_Four_Week_January", $this->Date_Back_Four_Week_January);
+           $stmt->bindParam(":Time_Back_Ten_January", $this->Time_Back_Ten_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1100,19 +1101,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_28_january
-           AND time=:Time_Back_20_january
+           WHERE date=:Date_Back_Four_Week_January
+           AND time=:Time_Back_Twenty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_28_january = htmlspecialchars(strip_tags($this->Date_Back_28_january));
-           $this->Time_Back_20_january = htmlspecialchars(strip_tags($this->Time_Back_20_january));
+           $this->Date_Back_Four_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Four_Week_January));
+           $this->Time_Back_Twenty_January = htmlspecialchars(strip_tags($this->Time_Back_Twenty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_28_january", $this->Date_Back_28_january);
-           $stmt->bindParam(":Time_Back_20_january", $this->Time_Back_20_january);
+           $stmt->bindParam(":Date_Back_Four_Week_January", $this->Date_Back_Four_Week_January);
+           $stmt->bindParam(":Time_Back_Twenty_January", $this->Time_Back_Twenty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1123,19 +1124,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_28_january 
-           AND time=:Time_Back_30_january 
+           WHERE date=:Date_Back_Four_Week_January 
+           AND time=:Time_Back_Thirty_January 
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_28_january = htmlspecialchars(strip_tags($this->Date_Back_28_january));
-           $this->Time_Back_30_january = htmlspecialchars(strip_tags($this->Time_Back_30_january));
+           $this->Date_Back_Four_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Four_Week_January));
+           $this->Time_Back_Thirty_January = htmlspecialchars(strip_tags($this->Time_Back_Thirty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_28_january", $this->Date_Back_28_january);
-           $stmt->bindParam(":Time_Back_30_january", $this->Time_Back_30_january);
+           $stmt->bindParam(":Date_Back_Four_Week_January", $this->Date_Back_Four_Week_January);
+           $stmt->bindParam(":Time_Back_Thirty_January", $this->Time_Back_Thirty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1146,19 +1147,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_28_january 
-           AND time=:Time_Back_40_january
+           WHERE date=:Date_Back_Four_Week_January 
+           AND time=:Time_Back_Forty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_28_january = htmlspecialchars(strip_tags($this->Date_Back_28_january));
-           $this->Time_Back_40_january = htmlspecialchars(strip_tags($this->Time_Back_40_january));
+           $this->Date_Back_Four_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Four_Week_January));
+           $this->Time_Back_Forty_January = htmlspecialchars(strip_tags($this->Time_Back_Forty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_28_january", $this->Date_Back_28_january);
-           $stmt->bindParam(":Time_Back_40_january", $this->Time_Back_40_january);
+           $stmt->bindParam(":Date_Back_Four_Week_January", $this->Date_Back_Four_Week_January);
+           $stmt->bindParam(":Time_Back_Forty_January", $this->Time_Back_Forty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1169,19 +1170,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_28_january 
-           AND time=:Time_Back_50_january
+           WHERE date=:Date_Back_Four_Week_January 
+           AND time=:Time_Back_Fifty_January
            AND  product_key= :espkeyall 
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_28_january = htmlspecialchars(strip_tags($this->Date_Back_28_january));
-           $this->Time_Back_50_january  = htmlspecialchars(strip_tags($this->Time_Back_50_january));
+           $this->Date_Back_Four_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Four_Week_January));
+           $this->Time_Back_Fifty_January  = htmlspecialchars(strip_tags($this->Time_Back_Fifty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_28_january", $this->Date_Back_28_january);
-           $stmt->bindParam(":Time_Back_50_january", $this->Time_Back_50_january);
+           $stmt->bindParam(":Date_Back_Four_Week_January", $this->Date_Back_Four_Week_January);
+           $stmt->bindParam(":Time_Back_Fifty_January", $this->Time_Back_Fifty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
@@ -1192,19 +1193,19 @@ class NODEMCU
        {
            $strSQL = "SELECT Product_Details_Month_Pressure 
            FROM product_details_tb 
-           WHERE date=:Date_Back_28_january
-           AND time=:Time_Back_60_january
+           WHERE date=:Date_Back_Four_Week_January
+           AND time=:Time_Back_Sixty_January
            AND  product_key= :espkeyall
            ORDER BY Product_Details_Month_Id  
            DESC LIMIT 1";
    
-           $this->Date_Back_28_january = htmlspecialchars(strip_tags($this->Date_Back_28_january));
-           $this->Time_Back_60_january = htmlspecialchars(strip_tags($this->Time_Back_60_january));
+           $this->Date_Back_Four_Week_January = htmlspecialchars(strip_tags($this->Date_Back_Four_Week_January));
+           $this->Time_Back_Sixty_January = htmlspecialchars(strip_tags($this->Time_Back_Sixty_January));
            $this->espkeyall = intval(htmlspecialchars(strip_tags($this->espkeyall)));
            $stmt = $this->connDB->prepare($strSQL);
    
-           $stmt->bindParam(":Date_Back_28_january", $this->Date_Back_28_january);
-           $stmt->bindParam(":Time_Back_60_january", $this->Time_Back_60_january);
+           $stmt->bindParam(":Date_Back_Four_Week_January", $this->Date_Back_Four_Week_January);
+           $stmt->bindParam(":Time_Back_Sixty_January", $this->Time_Back_Sixty_January);
            $stmt->bindParam(":espkeyall", $this->espkeyall);
    
            if ($stmt->execute()) {
