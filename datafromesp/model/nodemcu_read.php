@@ -13,7 +13,7 @@ class NODEMCU
 
     public $espkey;
     public $userId;
-    public $espkeyall;
+    public $espkeyall="1234567890";
     ///////////////////////////////
     public $Date_Back_7;
     public $Date_Back_14;

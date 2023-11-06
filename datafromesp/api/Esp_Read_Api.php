@@ -126,79 +126,123 @@ $stmt_TIMEBACK_SIXTY_FOURWEEK = $nodemcuaccess->NODE_MCU_GET_DATA_TIMEBACK_SIXTY
 
 
 
+
+
+
 $data_array = array();
 
-$average_4_week_time_back_10 = array(
-    $stmt_TIMEBACK_TEN_ONEWEEK->rowCount()     > 0 ? $stmt_TIMEBACK_TEN_ONEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_TEN_TWOWEEK->rowCount()     > 0 ? $stmt_TIMEBACK_TEN_TWOWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_TEN_THREEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_TEN_THREEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_TEN_FOURWEEK->rowCount()    > 0 ? $stmt_TIMEBACK_TEN_FOURWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
+
+
+$fetch_stmt_TIMEBACK_TEN_ONEWEEK = $stmt_TIMEBACK_TEN_ONEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_TEN_TWOWEEK = $stmt_TIMEBACK_TEN_TWOWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_TEN_THREEWEEK = $stmt_TIMEBACK_TEN_THREEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_TEN_FOURWEEK = $stmt_TIMEBACK_TEN_FOURWEEK->fetch(PDO::FETCH_ASSOC);
+
+$fetch_stmt_TIMEBACK_TWENTY_ONEWEEK = $stmt_TIMEBACK_TWENTY_ONEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_TWENTY_TWOWEEK = $stmt_TIMEBACK_TWENTY_TWOWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_TWENTY_THREEWEEK = $stmt_TIMEBACK_TWENTY_THREEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_TWENTY_FOURWEEK = $stmt_TIMEBACK_TWENTY_FOURWEEK->fetch(PDO::FETCH_ASSOC);
+
+$fetch_stmt_TIMEBACK_THIRTY_ONEWEEK = $stmt_TIMEBACK_THIRTY_ONEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_THIRTY_TWOWEEK = $stmt_TIMEBACK_THIRTY_TWOWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_THIRTY_THREEWEEK = $stmt_TIMEBACK_THIRTY_THREEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_THIRTY_FOURWEEK = $stmt_TIMEBACK_THIRTY_FOURWEEK->fetch(PDO::FETCH_ASSOC);
+
+$fetch_stmt_TIMEBACK_FORTY_ONEWEEK = $stmt_TIMEBACK_FORTY_ONEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_FORTY_TWOWEEK = $stmt_TIMEBACK_FORTY_TWOWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_FORTY_THREEWEEK = $stmt_TIMEBACK_FORTY_THREEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_FORTY_FOURWEEK = $stmt_TIMEBACK_FORTY_FOURWEEK->fetch(PDO::FETCH_ASSOC);
+
+$fetch_stmt_TIMEBACK_FIFTY_ONEWEEK = $stmt_TIMEBACK_FIFTY_ONEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_FIFTY_TWOWEEK = $stmt_TIMEBACK_FIFTY_TWOWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_FIFTY_THREEWEEK = $stmt_TIMEBACK_FIFTY_THREEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_FIFTY_FOURWEEK = $stmt_TIMEBACK_FIFTY_FOURWEEK->fetch(PDO::FETCH_ASSOC);
+
+$fetch_stmt_TIMEBACK_SIXTY_ONEWEEK = $stmt_TIMEBACK_SIXTY_ONEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_SIXTY_TWOWEEK = $stmt_TIMEBACK_SIXTY_TWOWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_SIXTY_THREEWEEK = $stmt_TIMEBACK_SIXTY_THREEWEEK->fetch(PDO::FETCH_ASSOC);
+$fetch_stmt_TIMEBACK_SIXTY_FOURWEEK = $stmt_TIMEBACK_SIXTY_FOURWEEK->fetch(PDO::FETCH_ASSOC);
+
+
+$average_four_week_time_back_ten = array(
+    $fetch_stmt_TIMEBACK_TEN_ONEWEEK > 0 ? $fetch_stmt_TIMEBACK_TEN_ONEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_TEN_TWOWEEK > 0 ? $fetch_stmt_TIMEBACK_TEN_TWOWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_TEN_THREEWEEK > 0 ? $fetch_stmt_TIMEBACK_TEN_THREEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_TEN_FOURWEEK > 0 ? $fetch_stmt_TIMEBACK_TEN_FOURWEEK["Product_Details_Month_Pressure"] : 0,
+
 );
-$average_4_week_time_back_20 = array(
-    $stmt_TIMEBACK_TWENTY_ONEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_TWENTY_ONEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_TWENTY_TWOWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_TWENTY_TWOWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_TWENTY_THREEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_TWENTY_THREEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_TWENTY_FOURWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_TWENTY_FOURWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
+$average_four_week_time_back_twenty = array(
+    $fetch_stmt_TIMEBACK_TWENTY_ONEWEEK > 0 ? $fetch_stmt_TIMEBACK_TWENTY_ONEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_TWENTY_TWOWEEK > 0 ? $fetch_stmt_TIMEBACK_TWENTY_TWOWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_TWENTY_THREEWEEK > 0 ? $fetch_stmt_TIMEBACK_TWENTY_THREEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_TWENTY_FOURWEEK > 0 ? $fetch_stmt_TIMEBACK_TWENTY_FOURWEEK["Product_Details_Month_Pressure"] : 0,
+
 );
-$average_4_week_time_back_30 = array(
-    $stmt_TIMEBACK_THIRTY_ONEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_THIRTY_ONEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_THIRTY_TWOWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_THIRTY_TWOWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_THIRTY_THREEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_THIRTY_THREEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_THIRTY_FOURWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_THIRTY_FOURWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
+$average_four_week_time_back_thirty = array(
+    $fetch_stmt_TIMEBACK_THIRTY_ONEWEEK > 0 ? $fetch_stmt_TIMEBACK_THIRTY_ONEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_THIRTY_TWOWEEK > 0 ? $fetch_stmt_TIMEBACK_THIRTY_TWOWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_THIRTY_THREEWEEK > 0 ? $fetch_stmt_TIMEBACK_THIRTY_THREEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_THIRTY_FOURWEEK > 0 ? $fetch_stmt_TIMEBACK_THIRTY_FOURWEEK["Product_Details_Month_Pressure"] : 0,
+
 );
-$average_4_week_time_back_40 = array(
-    $stmt_TIMEBACK_FORTY_ONEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FORTY_ONEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_FORTY_TWOWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FORTY_TWOWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_FORTY_THREEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FORTY_THREEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_FORTY_FOURWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FORTY_FOURWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
+$average_four_week_time_back_forty = array(
+    $fetch_stmt_TIMEBACK_FORTY_ONEWEEK > 0 ? $fetch_stmt_TIMEBACK_FORTY_ONEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_FORTY_TWOWEEK > 0 ? $fetch_stmt_TIMEBACK_FORTY_TWOWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_FORTY_THREEWEEK > 0 ? $fetch_stmt_TIMEBACK_FORTY_THREEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_FORTY_FOURWEEK > 0 ? $fetch_stmt_TIMEBACK_FORTY_FOURWEEK["Product_Details_Month_Pressure"] : 0,
+
 );
-$average_4_week_time_back_50 = array(
-    $stmt_TIMEBACK_FIFTY_ONEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FIFTY_ONEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_FIFTY_TWOWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FIFTY_TWOWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_FIFTY_THREEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FIFTY_THREEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_FIFTY_FOURWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_FIFTY_FOURWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
+$average_four_week_time_back_fifty = array(
+    $fetch_stmt_TIMEBACK_FIFTY_ONEWEEK > 0 ? $fetch_stmt_TIMEBACK_FIFTY_ONEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_FIFTY_TWOWEEK > 0 ? $fetch_stmt_TIMEBACK_FIFTY_TWOWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_FIFTY_THREEWEEK > 0 ? $fetch_stmt_TIMEBACK_FIFTY_THREEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_FIFTY_FOURWEEK > 0 ? $fetch_stmt_TIMEBACK_FIFTY_FOURWEEK["Product_Details_Month_Pressure"] : 0,
+
 );
-$average_4_week_time_back_60 = array(
-    $stmt_TIMEBACK_SIXTY_ONEWEEK->rowCount()  > 0 ? $stmt_TIMEBACK_SIXTY_ONEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_SIXTY_TWOWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_SIXTY_TWOWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_SIXTY_THREEWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_SIXTY_THREEWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-    $stmt_TIMEBACK_SIXTY_FOURWEEK->rowCount()   > 0 ? $stmt_TIMEBACK_SIXTY_FOURWEEK->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
+$average_four_week_time_back_sixty = array(
+    $fetch_stmt_TIMEBACK_SIXTY_ONEWEEK > 0 ? $fetch_stmt_TIMEBACK_SIXTY_ONEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_SIXTY_TWOWEEK > 0 ? $fetch_stmt_TIMEBACK_SIXTY_TWOWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_SIXTY_THREEWEEK > 0 ? $fetch_stmt_TIMEBACK_SIXTY_THREEWEEK["Product_Details_Month_Pressure"] : 0,
+    $fetch_stmt_TIMEBACK_SIXTY_FOURWEEK > 0 ? $fetch_stmt_TIMEBACK_SIXTY_FOURWEEK["Product_Details_Month_Pressure"] : 0,
+
 );
+
+
 
 
 //หาค่าเฉลี่ยรายรายชั่วโมง 4 สัปดาห์
-$x_bar_4_week_time_back_10 = array_sum($average_4_week_time_back_10) / count($average_4_week_time_back_10);
-$x_bar_4_week_time_back_20 = array_sum($average_4_week_time_back_20) / count($average_4_week_time_back_20);
-$x_bar_4_week_time_back_30 = array_sum($average_4_week_time_back_30) / count($average_4_week_time_back_30);
-$x_bar_4_week_time_back_40 = array_sum($average_4_week_time_back_40) / count($average_4_week_time_back_40);
-$x_bar_4_week_time_back_50 = array_sum($average_4_week_time_back_50) / count($average_4_week_time_back_50);
-$x_bar_4_week_time_back_60 = array_sum($average_4_week_time_back_60) / count($average_4_week_time_back_60);
+$x_bar_four_week_time_back_ten = array_sum($average_four_week_time_back_ten) / count($average_four_week_time_back_ten);
+$x_bar_four_week_time_back_twenty = array_sum($average_four_week_time_back_twenty) / count($average_four_week_time_back_twenty);
+$x_bar_four_week_time_back_thirty = array_sum($average_four_week_time_back_thirty) / count($average_four_week_time_back_thirty);
+$x_bar_four_week_time_back_forty = array_sum($average_four_week_time_back_forty) / count($average_four_week_time_back_forty);
+$x_bar_four_week_time_back_fifty = array_sum($average_four_week_time_back_fifty) / count($average_four_week_time_back_fifty);
+$x_bar_four_week_time_back_sixty = array_sum($average_four_week_time_back_sixty) / count($average_four_week_time_back_sixty);
 
 //เช็คค่าที่ได้
-$value_4_week = array(
-    $x_bar_4_week_time_back_10 > 0 ? $x_bar_4_week_time_back_10 : 0,
-    $x_bar_4_week_time_back_20 > 0 ? $x_bar_4_week_time_back_20 : 0,
-    $x_bar_4_week_time_back_30 > 0 ? $x_bar_4_week_time_back_30 : 0,
-    $x_bar_4_week_time_back_40 > 0 ? $x_bar_4_week_time_back_40 : 0,
-    $x_bar_4_week_time_back_50 > 0 ? $x_bar_4_week_time_back_50 : 0,
-    $x_bar_4_week_time_back_60 > 0 ? $x_bar_4_week_time_back_60 : 0,
+$value_four_week = array(
+    $x_bar_four_week_time_back_ten > 0 ? $average_four_week_time_back_ten : 0,
+    $x_bar_four_week_time_back_twenty > 0 ? $average_four_week_time_back_twenty : 0,
+    $x_bar_four_week_time_back_thirty > 0 ? $average_four_week_time_back_thirty : 0,
+    $x_bar_four_week_time_back_forty > 0 ? $average_four_week_time_back_forty : 0,
+    $x_bar_four_week_time_back_fifty > 0 ? $average_four_week_time_back_fifty : 0,
+    $x_bar_four_week_time_back_sixty > 0 ? $average_four_week_time_back_sixty : 0,
 
 
 );
 
 //นำค่าที่ได้มาหาค่าเฉลี่ย
-$x_bar_4_week = array_sum($value_4_week) / count($value_4_week);
+$x_bar_four_week = array_sum($value_four_week) / count($value_four_week);
 
-$squaredDifferences = array_map(function ($value_4_week) use ($x_bar_4_week) {
-    return ($value_4_week - $x_bar_4_week) ** 2;
-}, $value_4_week);
+$squaredDifferences = array_map(function ($value_four_week) use ($x_bar_four_week) {
+    return ($value_four_week - $x_bar_four_week) ** 2;
+}, $value_four_week);
 $variance = array_sum($squaredDifferences) / (count($squaredDifferences) - 1);
 $standardDeviation = sqrt($variance);
 
 //ขอบบน
-$resultSDPlus =   $x_bar_4_week + $standardDeviation;
+$resultSDPlus =   $x_bar_four_week + $standardDeviation;
 //ขอบล่าง
-$resultSDMinus =   $x_bar_4_week - $standardDeviation;
+$resultSDMinus =   $x_bar_four_week - $standardDeviation;
 $resultSDMinus = round($resultSDMinus, 2);
 
 
@@ -254,72 +298,102 @@ if ($stmt_USERID->rowCount() > 0) {
         $fetch_stmt_TIMEBACK_TEN_THREEWEEK_JANUARY = $stmt_TIMEBACK_TEN_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
         $fetch_stmt_TIMEBACK_TEN_FOURWEEK_JANUARY = $stmt_TIMEBACK_TEN_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
 
+        $fetch_stmt_TIMEBACK_TWENTY_ONEWEEK_JANUARY = $stmt_TIMEBACK_TWENTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_TWENTY_TWOWEEK_JANUARY = $stmt_TIMEBACK_TWENTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_TWENTY_THREEWEEK_JANUARY = $stmt_TIMEBACK_TWENTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_TWENTY_FOURWEEK_JANUARY = $stmt_TIMEBACK_TWENTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
 
-        echo json_encode($fetch_stmt_TIMEBACK_TEN_FOURWEEK_JANUARY);
+        $fetch_stmt_TIMEBACK_THIRTY_ONEWEEK_JANUARY = $stmt_TIMEBACK_THIRTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_THIRTY_TWOWEEK_JANUARY = $stmt_TIMEBACK_THIRTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_THIRTY_THREEWEEK_JANUARY = $stmt_TIMEBACK_THIRTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_THIRTY_FOURWEEK_JANUARY = $stmt_TIMEBACK_THIRTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
 
-        $average_4_week_time_back_10_january = array(
-            $fetch_stmt_TIMEBACK_TEN_ONEWEEK_JANUARY != 0 ? $fetch_stmt_TIMEBACK_TEN_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
-            $fetch_stmt_TIMEBACK_TEN_TWOWEEK_JANUARY != 0 ? $fetch_stmt_TIMEBACK_TEN_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
-            $fetch_stmt_TIMEBACK_TEN_THREEWEEK_JANUARY != 0 ? $fetch_stmt_TIMEBACK_TEN_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
-            $fetch_stmt_TIMEBACK_TEN_FOURWEEK_JANUARY != 0 ? $fetch_stmt_TIMEBACK_TEN_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+        $fetch_stmt_TIMEBACK_FORTY_ONEWEEK_JANUARY = $stmt_TIMEBACK_FORTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_FORTY_TWOWEEK_JANUARY = $stmt_TIMEBACK_FORTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_FORTY_THREEWEEK_JANUARY = $stmt_TIMEBACK_FORTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_FORTY_FOURWEEK_JANUARY = $stmt_TIMEBACK_FORTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+
+        $fetch_stmt_TIMEBACK_FIFTY_ONEWEEK_JANUARY = $stmt_TIMEBACK_FIFTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_FIFTY_TWOWEEK_JANUARY = $stmt_TIMEBACK_FIFTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_FIFTY_THREEWEEK_JANUARY = $stmt_TIMEBACK_FIFTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_FIFTY_FOURWEEK_JANUARY = $stmt_TIMEBACK_FIFTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+
+        $fetch_stmt_TIMEBACK_SIXTY_ONEWEEK_JANUARY = $stmt_TIMEBACK_SIXTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_SIXTY_TWOWEEK_JANUARY = $stmt_TIMEBACK_SIXTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_SIXTY_THREEWEEK_JANUARY = $stmt_TIMEBACK_SIXTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+        $fetch_stmt_TIMEBACK_SIXTY_FOURWEEK_JANUARY = $stmt_TIMEBACK_SIXTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC);
+
+
+
+
+
+
+        $average_four_week_time_back_ten_january = array(
+            $fetch_stmt_TIMEBACK_TEN_ONEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TEN_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_TEN_TWOWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TEN_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_TEN_THREEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TEN_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_TEN_FOURWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TEN_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
 
         );
-        echo json_encode($average_4_week_time_back_10_january);
+        $average_four_week_time_back_twenty_january = array(
+            $fetch_stmt_TIMEBACK_TWENTY_ONEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TWENTY_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_TWENTY_TWOWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TWENTY_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_TWENTY_THREEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TWENTY_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_TWENTY_FOURWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_TWENTY_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
 
-        $average_4_week_time_back_20_january = array(
-            ($stmt_TIMEBACK_TWENTY_ONEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_TWENTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_TWENTY_TWOWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_TWENTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_TWENTY_THREEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_TWENTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_TWENTY_FOURWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_TWENTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0
+        );
+        $average_four_week_time_back_thirty_january = array(
+            $fetch_stmt_TIMEBACK_THIRTY_ONEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_THIRTY_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_THIRTY_TWOWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_THIRTY_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_THIRTY_THREEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_THIRTY_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_THIRTY_FOURWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_THIRTY_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+
+        );
+        $average_four_week_time_back_forty_january = array(
+            $fetch_stmt_TIMEBACK_FORTY_ONEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FORTY_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_FORTY_TWOWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FORTY_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_FORTY_THREEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FORTY_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_FORTY_FOURWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FORTY_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+
+        );
+        $average_four_week_time_back_fifty_january = array(
+            $fetch_stmt_TIMEBACK_FIFTY_ONEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FIFTY_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_FIFTY_TWOWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FIFTY_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_FIFTY_THREEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FIFTY_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_FIFTY_FOURWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_FIFTY_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+
+        );
+        $average_four_week_time_back_sixty_january = array(
+            $fetch_stmt_TIMEBACK_SIXTY_ONEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_SIXTY_ONEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_SIXTY_TWOWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_SIXTY_TWOWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_SIXTY_THREEWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_SIXTY_THREEWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+            $fetch_stmt_TIMEBACK_SIXTY_FOURWEEK_JANUARY > 0 ? $fetch_stmt_TIMEBACK_SIXTY_FOURWEEK_JANUARY["Product_Details_Month_Pressure"] : 0,
+
         );
 
-        $average_4_week_time_back_30_january = array(
-            ($stmt_TIMEBACK_THIRTY_ONEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_THIRTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_THIRTY_TWOWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_THIRTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_THIRTY_THREEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_THIRTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_THIRTY_FOURWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_THIRTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0
-        );
 
-        $average_4_week_time_back_40_january = array(
-            ($stmt_TIMEBACK_FORTY_ONEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FORTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_FORTY_TWOWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FORTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_FORTY_THREEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FORTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_FORTY_FOURWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FORTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0
-        );
 
-        $average_4_week_time_back_50_january = array(
-            ($stmt_TIMEBACK_FIFTY_ONEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FIFTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_FIFTY_TWOWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FIFTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_FIFTY_THREEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FIFTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_FIFTY_FOURWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_FIFTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0
-        );
 
-        $average_4_week_time_back_60_january = array(
-            ($stmt_TIMEBACK_SIXTY_ONEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_SIXTY_ONEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_SIXTY_TWOWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_SIXTY_TWOWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_SIXTY_THREEWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_SIXTY_THREEWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0,
-            ($stmt_TIMEBACK_SIXTY_FOURWEEK_JANUARY->rowCount() > 0) ? $stmt_TIMEBACK_SIXTY_FOURWEEK_JANUARY->fetch(PDO::FETCH_ASSOC)["Product_Details_Month_Pressure"] : 0
-        );
 
 
 
         //หาค่าเฉลี่ยรายรายชั่วโมง 4 สัปดาห์
-        $x_bar_4_week_time_back_10_january = array_sum($average_4_week_time_back_10_january) / count($average_4_week_time_back_10_january);
-        $x_bar_4_week_time_back_20_january = array_sum($average_4_week_time_back_20_january) / count($average_4_week_time_back_20_january);
-        $x_bar_4_week_time_back_30_january = array_sum($average_4_week_time_back_30_january) / count($average_4_week_time_back_30_january);
-        $x_bar_4_week_time_back_40_january = array_sum($average_4_week_time_back_40_january) / count($average_4_week_time_back_40_january);
-        $x_bar_4_week_time_back_50_january = array_sum($average_4_week_time_back_50_january) / count($average_4_week_time_back_50_january);
-        $x_bar_4_week_time_back_60_january = array_sum($average_4_week_time_back_60_january) / count($average_4_week_time_back_60_january);
+        $x_bar_four_week_time_back_ten_january = array_sum($average_four_week_time_back_ten_january) / count($average_four_week_time_back_ten_january);
+        $x_bar_four_week_time_back_twenty_january = array_sum($average_four_week_time_back_twenty_january) / count($average_four_week_time_back_twenty_january);
+        $x_bar_four_week_time_back_thirty_january = array_sum($average_four_week_time_back_thirty_january) / count($average_four_week_time_back_thirty_january);
+        $x_bar_four_week_time_back_forty_january = array_sum($average_four_week_time_back_forty_january) / count($average_four_week_time_back_forty_january);
+        $x_bar_four_week_time_back_fifty_january = array_sum($average_four_week_time_back_fifty_january) / count($average_four_week_time_back_fifty_january);
+        $x_bar_four_week_time_back_sixty_january = array_sum($average_four_week_time_back_sixty_january) / count($average_four_week_time_back_sixty_january);
 
 
         //เช็คค่าที่ได้
-        $value_4_week_january = array(
-            $x_bar_4_week_time_back_10_january > 0 ? $x_bar_4_week_time_back_10_january : 0,
-            $x_bar_4_week_time_back_20_january > 0 ? $x_bar_4_week_time_back_20_january : 0,
-            $x_bar_4_week_time_back_30_january > 0 ? $x_bar_4_week_time_back_30_january : 0,
-            $x_bar_4_week_time_back_40_january > 0 ? $x_bar_4_week_time_back_40_january : 0,
-            $x_bar_4_week_time_back_50_january > 0 ? $x_bar_4_week_time_back_50_january : 0,
-            $x_bar_4_week_time_back_60_january > 0 ? $x_bar_4_week_time_back_60_january : 0,
+        $value_four_week_january = array(
+            $x_bar_four_week_time_back_ten_january > 0 ? $x_bar_four_week_time_back_ten_january : 0,
+            $x_bar_four_week_time_back_twenty_january > 0 ? $x_bar_four_week_time_back_twenty_january : 0,
+            $x_bar_four_week_time_back_thirty_january > 0 ? $x_bar_four_week_time_back_thirty_january : 0,
+            $x_bar_four_week_time_back_forty_january > 0 ? $x_bar_four_week_time_back_forty_january : 0,
+            $x_bar_four_week_time_back_fifty_january > 0 ? $x_bar_four_week_time_back_fifty_january : 0,
+            $x_bar_four_week_time_back_sixty_january > 0 ? $x_bar_four_week_time_back_sixty_january : 0,
 
 
         );
@@ -327,22 +401,25 @@ if ($stmt_USERID->rowCount() > 0) {
 
 
         //นำค่าที่ได้มาหาค่าเฉลี่ย
-        $x_bar_4_week_january = array_sum($value_4_week_january) / count($value_4_week_january);
+        $x_bar_four_week_january = array_sum($value_four_week_january) / count($value_four_week_january);
 
-        $squaredDifferences_january = array_map(function ($value_4_week_january) use ($x_bar_4_week_january) {
-            return ($value_4_week_january - $x_bar_4_week_january) ** 2;
-        }, $value_4_week_january);
+
+        $squaredDifferences_january = array_map(function ($value_four_week_january) use ($x_bar_four_week_january) {
+            return ($value_four_week_january - $x_bar_four_week_january) ** 2;
+        }, $value_four_week_january);
+
+
         $variance_january = array_sum($squaredDifferences_january) / (count($squaredDifferences_january) - 1);
         $standardDeviation_january = sqrt($variance_january);
 
         //ขอบบน
-        $resultSDPlus_january =  $x_bar_4_week_january + $standardDeviation_january;
+        $resultSDPlus_january =  $x_bar_four_week_january + $standardDeviation_january;
         //ขอบล่าง
-        $resultSDMinus_january =  $x_bar_4_week_january - $standardDeviation_january;
-        $resultSDMinus_january = round($resultSDMinus_january, 2);
+        $resultSDMinus_january =  $x_bar_four_week_january - $standardDeviation_january;
+        $resultSDMinus_january_abs = abs($resultSDMinus_january);
+        $resultSDMinus_january_format = round($resultSDMinus_january_abs, 2);
 
         $lasttime = $stmt_LASTTIME->fetch(PDO::FETCH_ASSOC);
-        echo "บน";
         $data_item = array(
             "control_Date_On" => $realtime_data[0]['control_Date_On'],
             "control_Date_OFF" => $realtime_data[0]['control_Date_OFF'],
@@ -350,13 +427,13 @@ if ($stmt_USERID->rowCount() > 0) {
             "control_Time_OFF" => $realtime_data[0]['control_Time_OFF'],
             "control_Solenoid" => $realtime_data[0]['control_Solenoid'],
             "control_Ai" => $realtime_data[0]['control_Ai'],
-            "resultSDMinus" => $resultSDMinus,
+            "resultSDMinus" => $resultSDMinus_january_format,
             "Product_Details_Day_Water_Use" => $lasttime["Product_Details_Day_Water_Use"],
             "Product_Details_Month_Water_Use" => $lasttime["Product_Details_Month_Water_Use"],
 
         );
     } else {
-        echo "ล่าง";
+
         $data_item = array(
             "control_Date_On" => $realtime_data[0]['control_Date_On'],
             "control_Date_OFF" => $realtime_data[0]['control_Date_OFF'],
