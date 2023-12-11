@@ -18,7 +18,7 @@ class NODEMCU_WRITE
 
     public $date;
     public $time;
-
+ 
 
     public function NODE_MCU_GET_ID(){
         $strSQL = "SELECT user_Id FROM user_tb WHERE user_tb.user_Product_ID = :espkey ";
@@ -26,6 +26,26 @@ class NODEMCU_WRITE
         $stmt = $this->connDB->prepare($strSQL);
         $stmt->bindParam(":espkey", $this->espkey);
 
+        if ($stmt->execute()) {
+            return $stmt;
+        }
+    }
+    public function NODE_INSERT_PRODUCT_KEY(){
+        $strSQL = "INSERT INTO product_tb(product_Id) VALUES (:espkey)";
+        $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
+        $stmt = $this->connDB->prepare($strSQL);
+        $stmt->bindParam(":espkey", $this->espkey);
+        if ($stmt->execute()) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function NODE_GET_PRODUCT_KEY(){
+        $strSQL = "SELECT product_Id FROM product_tb WHERE product_Id=:espkey";
+        $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
+        $stmt = $this->connDB->prepare($strSQL);
+        $stmt->bindParam(":espkey", $this->espkey);
         if ($stmt->execute()) {
             return $stmt;
         }

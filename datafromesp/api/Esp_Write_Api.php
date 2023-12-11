@@ -41,36 +41,72 @@ $timecontrolstop = $data->timecontrolstop;
 // Get client IP address
 $clientIpAddress = $_SERVER['REMOTE_ADDR'];
 
-$stmt_userID = $nodemcuaccess->NODE_MCU_GET_ID();
 
-if ($stmt_userID->rowCount() > 0) {
-    $result = $stmt_userID->fetch(PDO::FETCH_ASSOC);
-    $result_user_id = $result["user_Id"];
-    $nodemcuaccess->userId = $result_user_id;
 
-    if ($timecontrolstop == 0) {
-        $result_updatetime = $nodemcuaccess->UPDATE_TIME();
-        $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
-        $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
-        if ($stmt_realtime == true && $stmt_insert == true) {
-            http_response_code(200);
-        } else {
-            http_response_code(503);
-            writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
+
+
+if( $stmt_productKey = $nodemcuaccess->NODE_GET_PRODUCT_KEY()){
+    if ($stmt_productKey->rowCount()>0) {
+
+     if($stmt_userID = $nodemcuaccess->NODE_MCU_GET_ID()){
+           
+        $result = $stmt_userID->fetch(PDO::FETCH_ASSOC);
+        $result_user_id = $result["user_Id"];
+        $nodemcuaccess->userId = $result_user_id;
+        if($stmt_userID->rowCount()>0){
+            if ($timecontrolstop == 0) {
+                $result_updatetime = $nodemcuaccess->UPDATE_TIME();
+                $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
+                $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
+                if ($stmt_realtime == true && $stmt_insert == true) {
+                    http_response_code(200);
+                } else {
+                    http_response_code(503);
+                    writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
+                }
+            } else {
+                $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
+                $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
+                if ($stmt_realtime == true && $stmt_insert == true) {
+                    http_response_code(200);
+                } else {
+                    http_response_code(503);
+                    writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
+                }
+            }
+        }else{
+            if ($timecontrolstop == 0) {
+                $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
+                $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
+                if ($stmt_realtime == true && $stmt_insert == true) {
+                    http_response_code(200);
+                } else {
+                    http_response_code(503);
+                    writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
+                }
+            } else {
+                $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
+                $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
+                if ($stmt_realtime == true && $stmt_insert == true) {
+                    http_response_code(200);
+                } else {
+                    http_response_code(503);
+                    writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
+                }
+            }
         }
+    
+       
+    
+     }
     } else {
-        $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
-        $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
-        if ($stmt_realtime == true && $stmt_insert == true) {
-            http_response_code(200);
-        } else {
-            http_response_code(503);
-            writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
-        }
+        $nodemcuaccess->NODE_INSERT_PRODUCT_KEY();
     }
-
-} else {
+}else{
     http_response_code(503);
     echo json_encode(array("message" => "Error processing data. User not found."));
     writeToLog("Error: User not found. Details :". json_encode($data), $logFilePath, $clientIpAddress);
 }
+
+
+

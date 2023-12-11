@@ -13,6 +13,8 @@ $realtimeaccess = new REALTIME($conn_DB->getConnectionDB());
 
 $data = json_decode(file_get_contents("php://input"));
 $realtimeaccess->userEmail = $data->userEmail;
+$realtimeaccess->userPassword = $data->userPassword;
+
 
 $stmt_email = $realtimeaccess->GET_PRODUCT_FOR_EMAIL();
 

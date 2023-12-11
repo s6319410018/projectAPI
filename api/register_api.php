@@ -26,6 +26,8 @@ $useracces->userPassword = $data->userPassword;
 $useracces->userProductId = $data->userProductId;
 $useracces->userEmail = $data->userEmail;
 
+
+
 $stmt_count_email = $useracces->GET_VALIDATE_EMAIL();
 $stmt_count_phone = $useracces->GET_VALIDATE_PHONE();
 $stmt_count_user_productkey = $useracces->GET_VALIDATE_USER_PRODUCT();

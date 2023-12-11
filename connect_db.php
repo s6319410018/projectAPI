@@ -2,9 +2,9 @@
 //ไฟล์ที่ใช้ในการติดต่อกับdatabase
 class ConnectDB{
    private $host ="localhost";
-   private $username ="root";
-   private $password ="";
-   private $dbname ="smart_water_meter";
+   private $username ="u231198616_s6319410018";
+   private $password ="S@u6319410018";
+   private $dbname ="u231198616_s6319410018_db";
 
    private $connDB;
      //method connection database
