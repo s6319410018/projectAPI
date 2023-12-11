@@ -43,6 +43,7 @@ if ($stmt_email->rowCount() > 0) {
                 "user_Product_ID" => $row['user_Product_ID'],
                 "Product_Details_Month_Water_Use" => $row['Product_Details_Month_Water_Use'],
                 "Product_Details_Day_Water_Use" => $row['Product_Details_Day_Water_Use'],
+                "alert" => $row['alert'],
             );
             array_push($data_array, $data_item);
         }
