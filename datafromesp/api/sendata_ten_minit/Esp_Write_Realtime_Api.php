@@ -12,7 +12,8 @@ include_once './../model/nodemcu_write.php';
 $logFilePath = __DIR__ . "/../log/Esp_write.log";
 
 // Logging Function
-function writeToLog($message, $logFilePath, $ipAddress) {
+function writeToLog($message, $logFilePath, $ipAddress)
+{
     $logMessage = "\n[" . date("Y-m-d H:i:s") . "] IP: $ipAddress - $message \n";
     error_log($logMessage, 3, $logFilePath);
 }
@@ -32,6 +33,7 @@ $nodemcuaccess->pressure = $data->pressure;
 $nodemcuaccess->solenoid = $data->solenoid;
 $nodemcuaccess->ai_status = $data->ai_status;
 $nodemcuaccess->time_status = $data->time_status;
+$timecontrolstop = $data->timecontrolstop;
 $nodemcuaccess->alert = $data->alert;
 
 // Get client IP address
@@ -41,38 +43,50 @@ $clientIpAddress = $_SERVER['REMOTE_ADDR'];
 
 
 
-if( $stmt_productKey = $nodemcuaccess->NODE_GET_PRODUCT_KEY()){
-    if ($stmt_productKey->rowCount()>0) {
+if ($stmt_productKey = $nodemcuaccess->NODE_GET_PRODUCT_KEY()) {
+    if ($stmt_productKey->rowCount() > 0) {
 
-     if($stmt_userID = $nodemcuaccess->NODE_MCU_GET_ID()){
-           
-        $result = $stmt_userID->fetch(PDO::FETCH_ASSOC);
-        $result_user_id = $result["user_Id"];
-        $nodemcuaccess->userId = $result_user_id;
-        if($stmt_userID->rowCount()>0){
-            $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
-            if ($stmt_insert === true) {
-                http_response_code(200);
-                echo "Insert successful"; // แสดงข้อความ
+        if ($stmt_userID = $nodemcuaccess->NODE_MCU_GET_ID()) {
+
+            $result = $stmt_userID->fetch(PDO::FETCH_ASSOC);
+            $result_user_id = $result["user_Id"];
+            $nodemcuaccess->userId = $result_user_id;
+            if ($stmt_userID->rowCount() > 0) {
+
+
+                if ($timecontrolstop == 0) {
+                    if ($result_updatetime = $nodemcuaccess->UPDATE_TIME()) {
+                        if ($stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_REALTIME()) {
+                            http_response_code(200);
+                            echo "Insert successful";
+                        } else {
+                            echo "Insert Failed";
+                        }
+                    } else {
+                        echo "Update_time_Failed";
+                    }
+                } else {
+                    $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
+                    if ($stmt_insert === true) {
+                        http_response_code(200);
+                        echo "Insert successful"; // แสดงข้อความ
+                    } else {
+                        http_response_code(500);
+                        echo "Insert failed"; // เแสดงข้อความ
+                        writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
+                    }
+                }
             } else {
-                http_response_code(500);
-                echo "Insert failed"; // เแสดงข้อความ
+                http_response_code(503);
+                echo "dont have user ID"; // เแสดงข้อความ
                 writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
             }
-        }else{
-            http_response_code(503);
-            echo "dont have user ID"; // เแสดงข้อความ
-            writeToLog("Error: Failed to insert data : " . json_encode($data), $logFilePath, $clientIpAddress);
         }
-     }
     } else {
         $nodemcuaccess->NODE_INSERT_PRODUCT_KEY();
     }
-}else{
+} else {
     http_response_code(503);
     echo json_encode(array("message" => "Error processing data. User not found."));
-    writeToLog("Error: User not found. Details :". json_encode($data), $logFilePath, $clientIpAddress);
+    writeToLog("Error: User not found. Details :" . json_encode($data), $logFilePath, $clientIpAddress);
 }
-
-
-

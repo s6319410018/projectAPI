@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 
 include_once './../connect_db.php';
-include_once './../model/nodemcu_read_test.php';
+include_once './../model/nodemcu_read.php';
 
 $conn_DB = new ConnectDB();
 $nodemcuaccess = new NODEMCU_READ($conn_DB->getConnectionDB());
