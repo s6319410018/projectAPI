@@ -54,7 +54,7 @@ if( $stmt_productKey = $nodemcuaccess->NODE_GET_PRODUCT_KEY()){
         $result_user_id = $result["user_Id"];
         $nodemcuaccess->userId = $result_user_id;
         if($stmt_userID->rowCount()>0){
-            if ($timecontrolstop == 0) {
+            if ($timecontrolstop == 0) {//การตั้งเวลาสำเร็จ
                 $result_updatetime = $nodemcuaccess->UPDATE_TIME();
                 $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
                 $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
@@ -75,7 +75,7 @@ if( $stmt_productKey = $nodemcuaccess->NODE_GET_PRODUCT_KEY()){
                 }
             }
         }else{
-            if ($timecontrolstop == 0) {
+            if ($timecontrolstop == 1) {//กำลังตั้งเวลา
                 $stmt_realtime = $nodemcuaccess->NODE_MCU_INSERT_REALTIME();
                 $stmt_insert = $nodemcuaccess->NODE_MCU_INSERT_DATA();
                 if ($stmt_realtime == true && $stmt_insert == true) {

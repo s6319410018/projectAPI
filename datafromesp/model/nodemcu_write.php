@@ -12,6 +12,7 @@ class NODEMCU_WRITE
     public $pressure;
     public $solenoid;
     public $ai_status;
+    public $alert;
     public $time_status;
     public $d_totalwater;
     public $m_totalwater;
@@ -83,8 +84,8 @@ class NODEMCU_WRITE
         $stmt->execute();
     
         if ($stmt->rowCount() == 0) {
-            $strSQL = "INSERT INTO realtime_tb (realtime_Solenoid, realtime_AI, realtime_Time, realtime_Flowrate, realtime_Pressure, product_key) 
-                       VALUES (:solenoid, :ai_status, :time_status, :flowrate, :pressure, :espkey)";
+            $strSQL = "INSERT INTO realtime_tb (realtime_Solenoid, realtime_AI, realtime_Time, realtime_Flowrate, realtime_Pressure, product_key, alert) 
+                       VALUES (:solenoid, :ai_status, :time_status, :flowrate, :pressure, :espkey ,:alert)";
     
             $this->solenoid = floatval(htmlspecialchars(strip_tags($this->solenoid)));
             $this->ai_status = intval(htmlspecialchars(strip_tags($this->ai_status)));
@@ -92,6 +93,7 @@ class NODEMCU_WRITE
             $this->flowrate = floatval(htmlspecialchars(strip_tags($this->flowrate)));
             $this->pressure = floatval(htmlspecialchars(strip_tags($this->pressure)));
             $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
+            $this->alert = intval(htmlspecialchars(strip_tags($this->alert)));
             $stmt = $this->connDB->prepare($strSQL);
             $stmt->bindParam(":solenoid", $this->solenoid);
             $stmt->bindParam(":ai_status", $this->ai_status);
@@ -99,6 +101,7 @@ class NODEMCU_WRITE
             $stmt->bindParam(":flowrate", $this->flowrate);
             $stmt->bindParam(":pressure", $this->pressure);
             $stmt->bindParam(":espkey", $this->espkey);
+            $stmt->bindParam(":alert", $this->alert);
     
             return $stmt->execute();
         } else {
@@ -108,7 +111,8 @@ class NODEMCU_WRITE
                        realtime_Time=:time_status,
                        product_key=:espkey,
                        realtime_Flowrate=:flowrate,
-                       realtime_Pressure=:pressure";
+                       realtime_Pressure=:pressure,
+                       alert=:alert";
     
             $this->solenoid = floatval(htmlspecialchars(strip_tags($this->solenoid)));
             $this->ai_status = intval(htmlspecialchars(strip_tags($this->ai_status)));
@@ -116,6 +120,7 @@ class NODEMCU_WRITE
             $this->flowrate = floatval(htmlspecialchars(strip_tags($this->flowrate)));
             $this->pressure = floatval(htmlspecialchars(strip_tags($this->pressure)));
             $this->espkey = intval(htmlspecialchars(strip_tags($this->espkey)));
+            $this->alert = intval(htmlspecialchars(strip_tags($this->alert)));
             $stmt = $this->connDB->prepare($strSQL);
             $stmt->bindParam(":solenoid", $this->solenoid);
             $stmt->bindParam(":ai_status", $this->ai_status);
@@ -123,6 +128,7 @@ class NODEMCU_WRITE
             $stmt->bindParam(":flowrate", $this->flowrate);
             $stmt->bindParam(":pressure", $this->pressure);
             $stmt->bindParam(":espkey", $this->espkey);
+            $stmt->bindParam(":alert", $this->alert);
     
             return $stmt->execute();
         }
