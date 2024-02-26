@@ -31,7 +31,7 @@ class User
         $this->userAddress = htmlspecialchars(strip_tags($this->userAddress));
         $this->userEmail = htmlspecialchars(strip_tags($this->userEmail));
         $this->userPhone = htmlspecialchars(strip_tags($this->userPhone));
-        $this->userPassword = md5(htmlspecialchars(strip_tags($this->userPassword)));
+        $this->userPassword = htmlspecialchars(strip_tags($this->userPassword));
         $this->userProductId = intval(htmlspecialchars(strip_tags($this->userProductId)));
 
         $stmt = $this->connDB->prepare($strSQL);

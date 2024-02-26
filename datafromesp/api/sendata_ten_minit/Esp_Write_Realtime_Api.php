@@ -9,7 +9,7 @@ include_once './../connect_db.php';
 include_once './../model/nodemcu_write.php';
 
 // Define the path to the log file
-$logFilePath = __DIR__ . "/../log/Esp_write.log";
+$logFilePath = __DIR__ . "./../log/Esp_write.log";
 
 // Logging Function
 function writeToLog($message, $logFilePath, $ipAddress)
